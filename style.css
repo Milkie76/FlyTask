@@ -1,0 +1,513 @@
+:root {
+      --bg: #0f1117;
+      --surface: #1a1d27;
+      --surface-2: #242836;
+      --border: #2e3345;
+      --text: #e8eaf0;
+      --text-muted: #9ba1b5;
+      --accent: #7c5cfc;
+      --accent-hover: #6a4de0;
+      --success: #34d399;
+      --danger: #f87171;
+      --warning: #fbbf24;
+    }
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    color-scheme: dark;
+}
+
+body{
+    min-height: 100vh;
+    line-height: 1.5;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+}
+
+                    /* FlyTask: менеджер задач */
+
+header{
+    width: 100%;
+    min-height: 70px;
+    background-color: var(--surface);
+    color: var(--text);
+    border-bottom: 1px solid var(--border);
+    padding: 16px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Left_Part_Header{
+    display: flex;
+    flex-direction: column;
+    cursor: default;
+}
+
+.Subtitle_Left_Part_Header{
+    font-size: 12px;
+    color: var(--text-muted);
+    letter-spacing: 0.5px;
+    margin-bottom: 2px;
+}
+
+.Title_Left_Part_Header{
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text);
+}
+
+.Right_Part_Header{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+}
+
+.Text_Right_Part_Header{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.Name_Right_Part_Header{
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text);
+}
+
+.Status_Right_Part_Header{
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--success);
+    margin-top: 2px;
+}
+
+.Block_Image_Right_Part_Header{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--accent);
+    background: linear-gradient(135deg, var(--accent), #a78bfa);
+    color: var(--text);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Image_Right_Part_Header{
+    font-size: 16px;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+                    /* Блок навигации */
+
+.App_Layout{
+    display: grid;
+    grid-template-columns: 240px 1fr 280px;
+    min-height: calc(100vh - 70px);
+}
+
+.Sidebar{
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    background-color: var(--surface);
+    border-right: 1px solid var(--border);
+    padding: 24px 16px;
+}
+
+.Nav_Section_Title{
+    font-size: 12px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    letter-spacing: 0.5px;
+    margin-bottom: 12px;
+    padding: 0 8px;
+}
+
+.Nav_Item{
+    padding: 10px 12px;
+    border-radius: 10px;
+    font-size: 14px;
+    color: var(--text-muted);
+    transition: all 0.15s;
+    cursor: pointer;
+}
+
+.Nav_Item:hover{
+    background-color: var(--surface-2);
+    color: var(--text);
+}
+
+.Nav_Item_Active{
+    background-color: rgba(124, 92, 252, 0.15);
+    color: var(--accent);
+    transition: all 0.15s;
+    padding: 10px 12px;
+    border-radius: 10px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.Main_Content{
+    padding: 28px 30px;
+    overflow-y: auto;
+}
+
+                    /* Блок создания новой задачи */
+
+.Create_Task_Block{
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 24px;
+    margin: 0 0 24px 0;
+}
+
+.Create_Task_Block:hover{
+    cursor: default;
+}
+
+.Create_Task_Title{
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.Create_Task_Form{
+    display: grid;
+    grid-template-columns: 1.3fr 1.8fr 150px auto;
+    gap: 14px;
+    align-items: end;
+}
+
+.Form_Group{
+    display: flex;
+    flex-direction: column;
+}
+
+.Form_Label{
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+    letter-spacing: 0.3px;
+}
+
+.Form_Input{
+    width: 100%;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.15s;
+    background-color: var(--bg);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 11px 14px;
+}
+
+.Form_Input:focus{
+    border-color: var(--accent);
+}
+
+.Create_Button{
+    background-color: var(--accent);
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    padding: 11px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.15s;
+    white-space: nowrap;
+    height: 42px;
+}
+
+.Create_Button:hover{
+    background-color: var(--accent-hover);
+}
+
+.Create_Button:active{
+    transform: translateY(1px);
+}
+
+                    /* Блок отслеживания задач */
+
+.Tasks_Block {
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 24px;
+    margin: 0;
+}
+
+.Tasks_Header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.Tasks_Title {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.Tasks_Filters {
+    display: flex;
+    gap: 8px;
+}
+
+.Filters_Btn {
+    background-color: transparent;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 6px 14px;
+    color: var(--text-muted);
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.15s;
+}
+
+.Filters_Btn:hover {
+    background-color: var(--surface-2);
+    color: var(--text);
+}
+
+.Filters_Btn:active {
+    transform: translateY(1px);
+}
+
+.Filters_Btn_Active {
+    background-color: rgba(124, 92, 252, 0.15);
+    color: var(--accent);
+    border: 1px solid transparent;
+    border-radius: 8px;
+    padding: 6px 14px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.15s;
+}
+
+.Filters_Btn_Active:active {
+    transform: translateY(1px);
+}
+
+.Tasks_Toolbar {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
+.Search_Box {
+    flex: 1;
+}
+
+.Search_Input {
+    width: 100%;
+    background-color: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 10px 14px;
+    color: var(--text);
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.15s;
+}
+
+.Search_Input:focus {
+    border-color: var(--accent);
+}
+
+.Sort_Btn {
+    background-color: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 10px 16px;
+    color: var(--text-muted);
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.15s;
+    white-space: nowrap;
+}
+
+.Sort_Btn:hover {
+    background-color: var(--surface-2);
+    color: var(--text);
+}
+
+.Sort_Btn:active {
+    transform: translateY(1px);
+}
+
+.Tasks_Table_Wrapper {
+    overflow-x: auto;
+}
+
+.Tasks_Table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.Tasks_Table th {
+    text-align: left;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--border);
+}
+
+.Tasks_Table td {
+    padding: 14px 12px;
+    border-bottom: 1px solid var(--border);
+    font-size: 14px;
+    vertical-align: middle;
+}
+
+.Tasks_Table tr:last-child td {
+    border-bottom: none;
+}
+
+.Tasks_Table tr:hover td {
+    background-color: rgba(255, 255, 255, 0.02);
+}
+
+.Task_Name {
+    font-weight: 500;
+}
+
+.Task_Desc {
+    color: var(--text-muted);
+    font-size: 13px;
+    max-width: 220px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.Task_Checkbox {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--accent);
+    cursor: pointer;
+}
+
+.Status {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.Status_Active {
+    background-color: rgba(52, 211, 153, 0.15);
+    color: var(--success);
+}
+
+.Status_Overdue {
+    background-color: rgba(248, 113, 113, 0.15);
+    color: var(--danger);
+}
+
+.Actions_Btn {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    font-size: 18px;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 6px;
+    transition: all 0.15s;
+}
+
+.Actions_Btn:hover {
+    background-color: var(--surface-2);
+    color: var(--text);
+}
+
+.Actions_Btn:active {
+    transform: translateY(1px);
+}
+
+.Th_Checkbox {
+    width: 40px;
+}
+
+.Th_Actions {
+    width: 50px;
+}
+
+                    /* Блок выполненных задач */
+
+.Completed_Panel {
+    background-color: var(--surface);
+    border-left: 1px solid var(--border);
+    padding: 24px 18px;
+    display: flex;
+    flex-direction: column;
+}
+
+.Completed_Title {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+.Completed_Controls {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 18px;
+}
+
+.Completed_Select,
+.Completed_Sort_Btn {
+    background-color: var(--bg);
+    color: var(--text-muted);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 12px;
+    padding: 8px 10px;
+    flex: 1;
+    cursor: pointer;
+}
+
+.Completed_List {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.Completed_Item {
+    background-color: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 12px 14px;
+    border-left: 3px solid var(--success);
+    cursor: pointer;
+}
+
+.Completed_Item_Title {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-muted);
+    text-decoration: line-through;
+}
+
+.Completed_Item_Date {
+    font-size: 12px;
+    color: var(--success);
+    margin-top: 4px;
+    display: block;
+}

@@ -1,0 +1,134 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <title>FlyTask</title>
+    </head>
+    
+    <body>
+        <header>
+            <div class="Left_Part_Header">
+                <p class="Subtitle_Left_Part_Header">продуктивность</p>
+                <p class="Title_Left_Part_Header">FlyTask</p>
+            </div>
+
+            <div class="Right_Part_Header">
+                <div class="Text_Right_Part_Header">
+                    <p class="Name_Right_Part_Header">Александр</p>
+                    <p class="Status_Right_Part_Header">онлайн</p>
+                </div>
+
+                <div class="Block_Image_Right_Part_Header">
+                    <p class="Image_Right_Part_Header">А</p>
+                </div>
+            </div>
+        </header>
+
+        <div class="App_Layout">
+
+            <!-- Блок навигации -->
+            <aside class="Sidebar">
+                <div class="Nav_Section">
+                    <h3 class="Nav_Section_Title">Навигация</h3>
+                    <div class="Nav_Item_Active">Все задачи</div>
+                    <div class="Nav_Item">Активные</div>
+                    <div class="Nav_Item">Выполненные</div>
+                </div>
+
+                <div class="Nav_Section">
+                    <h3 class="Nav_Section_Title">Фильтры</h3>
+                    <div class="Nav_Item">Сегодня</div>
+                    <div class="Nav_Item">Просроченные</div>
+                    <div class="Nav_Item">На этой неделе</div>
+                </div>
+            </aside>
+
+            <main class="Main_Content">
+
+                <!-- Блок создания новой задачи -->
+                <section class="Create_Task_Block">
+                    <h2 class="Create_Task_Title">+ Новая задача</h2>
+
+                    <div class="Create_Task_Form">
+                        <div class="Form_Group">
+                            <label class="Form_Label" for="task-title">Название</label>
+                            <input type="text" class="Form_Input" id="task-title" placeholder="Купить продукты на ужин">
+                        </div>
+
+                        <div class="Form_Group">
+                            <label class="Form_Label" for="task-desc">Описание</label>
+                            <input type="text" class="Form_Input" id="task-desc" placeholder="Молоко, хлеб, яйца, свежие овощи">
+                        </div>
+
+                        <div class="Form_Group">
+                            <label class="Form_Label" for="task-deadline">Дедлайн</label>
+                            <input type="date" class="Form_Input" id="task-deadline">
+                        </div>
+
+                        <button class="Create_Button" id="create-btn" type="button">+ Создать</button>
+                    </div>
+                </section>
+
+                <!-- Блок отслеживания задач -->
+                <section class="Tasks_Block">
+                    <div class="Tasks_Header">
+                        <h2 class="Tasks_Title">Ваши задачи</h2>
+
+                        <div class="Tasks_Filters">
+                            <button class="Filters_Btn_Active" type="button">Все</button>
+                            <button class="Filters_Btn" type="button">Активные</button>
+                            <button class="Filters_Btn" type="button">Выполненные</button>
+                        </div>
+                    </div>
+
+                    <div class="Tasks_Toolbar">
+                        <div class="Search_Box">
+                            <input type="text" class="Search_Input" placeholder="Поиск по названию...">
+                        </div>
+
+                        <button class="Sort_Btn" type="button">Сортировать по дате</button>
+                    </div>
+
+                    <div class="Tasks_Table_Wrapper">
+                        <table class="Tasks_Table">
+                            <thead>
+                                <tr>
+                                    <th class="Th_Checkbox"></th>
+                                    <th>Задача</th>
+                                    <th>Описание</th>
+                                    <th>Дедлайн</th>
+                                    <th>Статус</th>
+                                    <th class="Th_Actions">Действия</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tasks-body">
+                                <!-- Добавленные задачи через JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </main>
+
+            <!-- Блок выполненных задач -->
+            <aside class="Completed_Panel">
+                <h2 class="Completed_Title">Выполненные</h2>
+
+                <div class="Completed_Controls">
+                    <select class="Completed_Select">
+                        <option>Дата</option>
+                    </select>
+                    <button class="Completed_Sort_Btn" type="button">Сначала новые</button>
+                </div>
+
+                <div class="Completed_List" id="completed-list">
+                    <!-- Сохранённые выполненные задачи -->
+                </div>
+            </aside>
+        </div>
+
+        <script src="./dist/script.js" defer></script>
+    </body>
+</html>
